@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "Sipariş Onayı";
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilgilendirme Servisi</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ccc, #eee);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('../../20943863.jpg'); 
+            background-size: contain;
+            background-position: center; 
+            background-repeat: no-repeat; 
+        }
+    </style>
+</head>
+<body>
+    <script>
+    window.addEventListener("load", function () {
+        setTimeout(() => {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Bilgilendirme Servisi',
+                text: 'Sipariş Fiş No: @ViewBag.orderFicheNo Onaylıyor musunuz ?',
+                showCancelButton: true,
+                confirmButtonText: '✅ Evet, Onayla',
+                cancelButtonText: '❌ Hayır, Reddet',
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Onaylandı!',
+                        text: 'Sipariş başarıyla onaylandı.',
+                        confirmButtonColor: 'green'
+                    }).then(() => {
+                        submitForm('approve', '');
+                    });
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    Swal.fire({
+                        title: 'Reddetme Sebebi',
+                        input: 'text',
+                        inputLabel: 'Lütfen iptal sebebini yazınız:',
+                        inputPlaceholder: 'Sebep giriniz...',
+                        inputValidator: (value) => {
+                            if (!value) {
+                                return 'Sebep alanı boş bırakılamaz!';
+                            }
+                        },
+                        showCancelButton: true,
+                        confirmButtonText: 'Gönder',
+                        cancelButtonText: 'Vazgeç'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Reddedildi!',
+                                text: 'Sipariş reddedildi.',
+                                confirmButtonColor: 'red'
+                            }).then(() => {
+                                submitForm('reject', result.value);
+                            });
+                        }
+                    });
+                }
+            });
+        }, 500);
+    });
+    function submitForm(action, reason) {
+        let form = document.createElement("form");
+        form.method = "POST";
+        form.action = "@Url.Action("ConfirmOrder", "OrderWp")";
+        let tokenInput = document.createElement("input");
+        tokenInput.type = "hidden";
+        tokenInput.name = "token";
+        tokenInput.value = "@ViewBag.Token";
+        form.appendChild(tokenInput);
+        let actionInput = document.createElement("input");
+        actionInput.type = "hidden";
+        actionInput.name = "action";
+        actionInput.value = action;
+        form.appendChild(actionInput);
+        if (reason) {
+            let reasonInput = document.createElement("input");
+            reasonInput.type = "hidden";
+            reasonInput.name = "reason";
+            reasonInput.value = reason;
+            form.appendChild(reasonInput);
+        }
+        document.body.appendChild(form);
+        form.submit();
+    }
+    </script>
+</body>
+</html>
