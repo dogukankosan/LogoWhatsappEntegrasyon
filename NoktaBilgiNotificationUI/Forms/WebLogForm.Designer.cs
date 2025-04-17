@@ -1,6 +1,6 @@
 ﻿namespace NoktaBilgiNotificationUI.Forms
 {
-    partial class WebSiteForm
+    partial class WebLogForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WebSiteForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WebLogForm));
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -46,7 +46,7 @@
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(877, 572);
+            this.gridControl1.Size = new System.Drawing.Size(897, 554);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -77,21 +77,21 @@
             this.excelAktarToolStripMenuItem.Text = "Excel Aktar";
             this.excelAktarToolStripMenuItem.Click += new System.EventHandler(this.excelAktarToolStripMenuItem_Click);
             // 
-            // WebSiteForm
+            // WebLogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(877, 572);
+            this.ClientSize = new System.Drawing.Size(897, 554);
             this.Controls.Add(this.gridControl1);
-            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("WebSiteForm.IconOptions.Image")));
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("WebLogForm.IconOptions.Image")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
-            this.Name = "WebSiteForm";
+            this.Name = "WebLogForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Web Giren Kullanıcılar";
-            this.Load += new System.EventHandler(this.WebSiteForm_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.WebSiteForm_KeyDown);
+            this.Text = "Web Hata Logları";
+            this.Load += new System.EventHandler(this.WebLogForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.WebLogForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);

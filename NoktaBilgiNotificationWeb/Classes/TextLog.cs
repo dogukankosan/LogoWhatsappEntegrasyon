@@ -1,22 +1,16 @@
 ﻿using System;
-using System.IO;
-using System.Web;
 
 namespace NoktaBilgiNotificationWeb.Classes
 {
-    public class TextLog
+    internal class TextLog
     {
-
-        private static readonly string logFilePath = HttpContext.Current != null
-            ? HttpContext.Current.Server.MapPath("~/App_Data/ErrorLog.txt")
-            : Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ErrorLog.txt");
-        public static void TextLogging(string message)
+        internal async static void TextLogging(string message,int customerID)
         {
             try
             {
-                File.AppendAllText(logFilePath, $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} - {message}{Environment.NewLine}");
+                await SQLCrud.InserUpdateDelete("INSERT INTO Logs (CustomerID,LogDetails) VALUES (" + customerID + ",'" + message + "')",customerID);
             }
-            catch
+            catch (Exception)
             {
 
             }

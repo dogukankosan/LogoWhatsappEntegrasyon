@@ -8,7 +8,7 @@ using NoktaBilgiNotificationUI.Business;
 
 namespace NoktaBilgiNotificationUI.Forms
 {
-    public partial class MailSettingForm :XtraForm
+    public partial class MailSettingForm : XtraForm
     {
         public MailSettingForm()
         {
@@ -34,6 +34,33 @@ namespace NoktaBilgiNotificationUI.Forms
                 txt_Server.Text = dt.Rows[i][3].ToString();
                 txt_Port.Text = dt.Rows[i][4].ToString();
                 chk_SSL.Checked = Convert.ToBoolean(dt.Rows[i][5]);
+            }
+
+            DataTable signMail = SQLiteCrud.GetDataFromSQLite("SELECT *FROM MailSignature LIMIT 1");
+            if (!(signMail is null))
+            {
+                if (signMail.Rows.Count > 0)
+                {
+                    try
+                    {
+                        txt_CompanyName.Text = signMail.Rows[0][0].ToString();
+                        txt_Phone.Text = signMail.Rows[0][1].ToString();
+                        txt_Adres.Text = signMail.Rows[0][2].ToString();
+                        if (signMail.Rows.Count > 0 && (signMail.Rows[0][3] != DBNull.Value && signMail.Rows[0][3].ToString() != ""))
+                        {
+                            string base64String = signMail.Rows[0][3].ToString();
+                            if (!string.IsNullOrEmpty(base64String))
+                                pictureEdit1.Image = ImageConvert.Base64ToImage(base64String);
+                        }
+                        txt_Web.Text = signMail.Rows[0][4].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        XtraMessageBox.Show(ex.Message, "Hatalı Kayıt Okuma İşlemi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        TextLog.TextLogging(ex.Message + " -- " + ex.ToString());
+                        return;
+                    }
+                }
             }
         }
         private void btn_Update_Click(object sender, EventArgs e)
@@ -64,6 +91,15 @@ namespace NoktaBilgiNotificationUI.Forms
                     XtraMessageBox.Show(ex.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TextLog.TextLogging(ex.Message + " ---- " + ex.ToString());
                 }
+            }
+        }
+        private void btn_Save_Click(object sender, EventArgs e)
+        {
+            if (EMailSettingLogic.SaveMailSignature(txt_CompanyName, txt_Phone, txt_Adres, txt_Web, pictureEdit1))
+            {
+                string base64String = ImageConvert.ImageToBase64(pictureEdit1.Image, System.Drawing.Imaging.ImageFormat.Png);
+                _ = SQLiteCrud.InserUpdateDelete("UPDATE MailSignature SET CompanyName='" + txt_CompanyName.Text.Trim() + "',Phone='" + txt_Phone.Text.Trim() + "',Adress='" + txt_Adres.Text.Trim() + "',CompanyWebSite='" + txt_Web.Text.Trim() + "' , CompanyImage= '" + base64String + "'", "Mail İmza İşlemi Başarılı");
+                status = false;
             }
         }
     }

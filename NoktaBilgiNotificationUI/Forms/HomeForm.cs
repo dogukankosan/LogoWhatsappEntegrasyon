@@ -80,7 +80,7 @@ namespace NoktaBilgiNotificationUI.Forms
         {
             ribbonPage3.Visible = false;
             if (!(string.IsNullOrEmpty(username)) && username == "admin")
-                ribbonPage3.Visible = true;
+            ribbonPage3.Visible = true;
             DataTable dt = SQLiteCrud.GetDataFromSQLite("SELECT SQLConnectString FROM SqlConnectionString LIMIT 1");
             if (dt.Rows.Count > 0)
             {
@@ -119,20 +119,7 @@ namespace NoktaBilgiNotificationUI.Forms
             childForm.MdiParent = this;
             childForm.Show();
         }
-        private void btn_WebSite_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            foreach (Form openForm in Application.OpenForms)
-            {
-                if (openForm is WebSiteForm)
-                {
-                    openForm.BringToFront();
-                    return;
-                }
-            }
-            WebSiteForm childForm = new WebSiteForm();
-            childForm.MdiParent = this;
-            childForm.Show();
-        }
+     
         private void btn_About_ItemClick(object sender, ItemClickEventArgs e)
         {
             AboutForm childForm = new AboutForm();
@@ -197,7 +184,18 @@ namespace NoktaBilgiNotificationUI.Forms
 
         private void btn_MailAndWpKontor_ItemClick(object sender, ItemClickEventArgs e)
         {
-            DataTable dt = SQLiteCrud.GetDataFromSQLite("SELECT WpCount,MailCount FROM MailAndWpCount LIMIT 1");
+            DataTable remoteSQL = SQLiteCrud.GetDataFromSQLite("SELECT SQLConnectString,WebToken,WebPassword FROM WebSettings LIMIT 1");
+            if (remoteSQL.Rows.Count <= 0)
+            {
+                XtraMessageBox.Show("Önce Web Servis Ayarlarınızı Giriniz", "Hatalı Veritabanı Okuma İşlemi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (string.IsNullOrEmpty(remoteSQL.Rows[0][0].ToString()))
+            {
+                XtraMessageBox.Show("Önce Web Servis Ayarlarınızı Giriniz", "Hatalı Veritabanı Okuma İşlemi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            DataTable dt = SQLCrud.LoadDataIntoGridView("SELECT WpCount,MailCount FROM Customers WITH (NOLOCK) WHERE CustomerToken='" + remoteSQL.Rows[0][1].ToString() + "' AND CustomerPassword='"+ remoteSQL.Rows[0][2].ToString() + "'", remoteSQL.Rows[0][0].ToString());
             if (!(dt is null))
             {
                 if (dt.Rows.Count > 0)
@@ -284,6 +282,52 @@ namespace NoktaBilgiNotificationUI.Forms
                 }
             }
             CustomerTelAndMailForm childForm = new CustomerTelAndMailForm();
+            childForm.MdiParent = this;
+            childForm.Show();
+        }
+
+ 
+        private void btn_WebSettings_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            foreach (Form openForm in Application.OpenForms)
+            {
+                if (openForm is WebServiceSettings)
+                {
+                    openForm.BringToFront();
+                    return;
+                }
+            }
+            WebServiceSettings childForm = new WebServiceSettings();
+            childForm.MdiParent = this;
+            childForm.Show();
+        }
+
+        private void btn_WebLog_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            foreach (Form openForm in Application.OpenForms)
+            {
+                if (openForm is WebLogForm)
+                {
+                    openForm.BringToFront();
+                    return;
+                }
+            }
+            WebLogForm childForm = new WebLogForm();
+            childForm.MdiParent = this;
+            childForm.Show();
+        }
+
+        private void btn_UILog_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            foreach (Form openForm in Application.OpenForms)
+            {
+                if (openForm is UILogForm)
+                {
+                    openForm.BringToFront();
+                    return;
+                }
+            }
+            UILogForm childForm = new UILogForm();
             childForm.MdiParent = this;
             childForm.Show();
         }

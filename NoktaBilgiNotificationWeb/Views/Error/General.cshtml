@@ -1,5 +1,6 @@
 ﻿@{
     Layout = null;
+    string message = ViewBag.Message as string;
 }
 <!DOCTYPE html>
 <html lang="tr">
@@ -7,34 +8,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Genel Hata Sayfası</title>
+    <meta name="robots" content="noindex, nofollow" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="@Url.Content("~/favicon.ico")" />
+    <script>
+        setTimeout(function () {
+            window.close();
+        }, 3000);
+    </script>
 </head>
 <body class="bg-gray-50">
     <div class="h-screen w-screen flex items-center">
         <div class="container mx-auto flex flex-col-reverse md:flex-row items-center justify-between px-5 text-gray-700">
             <div class="w-full md:w-1/2 flex justify-center md:justify-start mb-10 md:mb-0">
-                <img src="~/errorpng.png" width="250" height="250" alt="Page not found" class="w-full max-w-md">
+                 <img src="@Url.Content("~/errorpng.png")" width="250" height="250" alt="Sayfa bulunamadı" loading="lazy" class="w-full max-w-md" />
             </div>
             <div class="w-full md:w-1/2 text-center md:text-left">
                 <div class="text-6xl font-extrabold text-green-500 mb-6">Genel</div>
                 <p class="text-2xl md:text-3xl font-light mb-6 leading-snug">
-                    @{
-                        if (!string.IsNullOrEmpty(ViewBag.Message))
-                        {
-                            if (ViewBag.Message == "Token silme işlemi başarıyla gerçekleştirildi.")
-                            {
-                                <div>Sipariş işlemi tamamlanmıştır sayfayı kapatabilirsiniz.</div>
-                            }
-                            else
-                            {
-                                <div>@ViewBag.Message</div>
-                            }
-
-                        }
-                        else
-                        {
-                            <div>Genel bir hata ile karşılaşıldı.</div>
-                        }
+                    @if (!string.IsNullOrEmpty(message))
+                    {
+                        <div>@message</div>
+                    }
+                    else
+                    {
+                        <div>Genel bir hata ile karşılaşıldı.</div>
                     }
                 </p>
             </div>

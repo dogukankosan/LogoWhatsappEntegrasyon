@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.IO;
 using System.Windows.Forms;
-using System.Xml;
 using DevExpress.XtraEditors;
 using NoktaBilgiNotificationUI.Classes;
 
@@ -22,23 +20,6 @@ namespace NoktaBilgiNotificationUI.Forms
             if (statusDB)
             {
                 DataTable dt = SQLiteCrud.GetDataFromSQLite("SELECT SQLConnectString FROM SqlConnectionString LIMIT 1");
-                DataTable iis = SQLiteCrud.GetDataFromSQLite("SELECT IISPath FROM CompanySettings LIMIT 1");
-                try
-                {
-                    string fullPath = Path.Combine(iis.Rows[0][0].ToString(), "web.config");
-                    XmlDocument doc = new XmlDocument();
-                    doc.Load(fullPath);
-                    XmlNode node = doc.SelectSingleNode("//connectionStrings/add[@name='DBConnection']");
-                    if (node != null && node.Attributes["connectionString"] != null)
-                    {
-                        node.Attributes["connectionString"].Value = EncryptionHelper.Decrypt(dt.Rows[0][0].ToString());
-                        doc.Save(fullPath);
-                    }
-                }
-                catch (Exception)
-                {
-                    
-                }
                 this.Hide();
                 homeValues = true;
             }        
@@ -70,9 +51,7 @@ namespace NoktaBilgiNotificationUI.Forms
                             string key = keyValue[0].Trim();
                             string value = keyValue.Length > 1 ? keyValue[1].Trim() : string.Empty;
                             if (key == "Server" || key == "Database" || key == "User Id" || key == "Password")
-                            {
                                 resultList.Add(value);
-                            }
                         }
                     }
                     txt_Servername.Text = resultList[0];

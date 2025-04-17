@@ -37,9 +37,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txt_ServiceID = new DevExpress.XtraEditors.TextEdit();
-            this.btn_Save = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_TemplateID = new DevExpress.XtraEditors.TextEdit();
+            this.btn_Save = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txt_WpToken.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_WpClientID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_ServiceID.Properties)).BeginInit();
@@ -67,6 +67,7 @@
             // 
             // txt_WpToken
             // 
+            this.txt_WpToken.EditValue = "383d93c58301e29276eb914640ced618";
             this.txt_WpToken.Location = new System.Drawing.Point(174, 75);
             this.txt_WpToken.Name = "txt_WpToken";
             this.txt_WpToken.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.25F);
@@ -88,6 +89,7 @@
             // 
             // txt_WpClientID
             // 
+            this.txt_WpClientID.EditValue = "AC0d37922d84b7373f712175b1e59b84c5";
             this.txt_WpClientID.Location = new System.Drawing.Point(174, 43);
             this.txt_WpClientID.Name = "txt_WpClientID";
             this.txt_WpClientID.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.25F);
@@ -119,6 +121,7 @@
             // 
             // txt_ServiceID
             // 
+            this.txt_ServiceID.EditValue = "MGd9674a5df108741733755b68397c691e";
             this.txt_ServiceID.Location = new System.Drawing.Point(174, 110);
             this.txt_ServiceID.Name = "txt_ServiceID";
             this.txt_ServiceID.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.25F);
@@ -127,21 +130,6 @@
             this.txt_ServiceID.Properties.PasswordChar = '*';
             this.txt_ServiceID.Size = new System.Drawing.Size(195, 24);
             this.txt_ServiceID.TabIndex = 3;
-            // 
-            // btn_Save
-            // 
-            this.btn_Save.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
-            this.btn_Save.Appearance.Font = new System.Drawing.Font("Tahoma", 15.25F);
-            this.btn_Save.Appearance.Options.UseBackColor = true;
-            this.btn_Save.Appearance.Options.UseFont = true;
-            this.btn_Save.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Save.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Save.ImageOptions.Image")));
-            this.btn_Save.Location = new System.Drawing.Point(174, 197);
-            this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(195, 44);
-            this.btn_Save.TabIndex = 5;
-            this.btn_Save.Text = "Kaydet";
-            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // label1
             // 
@@ -155,6 +143,7 @@
             // 
             // txt_TemplateID
             // 
+            this.txt_TemplateID.EditValue = "HX79357ab71fea4feea2d95db5817cf7c8";
             this.txt_TemplateID.Location = new System.Drawing.Point(174, 145);
             this.txt_TemplateID.Name = "txt_TemplateID";
             this.txt_TemplateID.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.25F);
@@ -163,6 +152,21 @@
             this.txt_TemplateID.Properties.PasswordChar = '*';
             this.txt_TemplateID.Size = new System.Drawing.Size(195, 24);
             this.txt_TemplateID.TabIndex = 4;
+            // 
+            // btn_Save
+            // 
+            this.btn_Save.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
+            this.btn_Save.Appearance.Font = new System.Drawing.Font("Tahoma", 15.25F);
+            this.btn_Save.Appearance.Options.UseBackColor = true;
+            this.btn_Save.Appearance.Options.UseFont = true;
+            this.btn_Save.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Save.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Save.ImageOptions.Image")));
+            this.btn_Save.Location = new System.Drawing.Point(174, 196);
+            this.btn_Save.Name = "btn_Save";
+            this.btn_Save.Size = new System.Drawing.Size(195, 44);
+            this.btn_Save.TabIndex = 7;
+            this.btn_Save.Text = "Kaydet";
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // WpSetttingsForm
             // 
@@ -209,8 +213,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
         private DevExpress.XtraEditors.TextEdit txt_ServiceID;
-        private DevExpress.XtraEditors.SimpleButton btn_Save;
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.TextEdit txt_TemplateID;
+        private DevExpress.XtraEditors.SimpleButton btn_Save;
     }
 }

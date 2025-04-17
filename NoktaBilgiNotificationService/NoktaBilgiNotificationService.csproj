@@ -160,6 +160,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\PDFsharp-MigraDoc-GDI.6.1.1\lib\net472\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -180,7 +181,6 @@
     <Compile Include="Classes\SQLCrud.cs" />
     <Compile Include="Classes\SQLiteCrud.cs" />
     <Compile Include="Classes\TextLog.cs" />
-    <Compile Include="Classes\TokenGenerate.cs" />
     <Compile Include="ProjectInstaller.cs">
       <SubType>Component</SubType>
     </Compile>

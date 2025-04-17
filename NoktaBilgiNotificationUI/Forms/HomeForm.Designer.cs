@@ -51,27 +51,30 @@
             this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.btn_StopService = new DevExpress.XtraBars.BarButtonItem();
             this.btn_StartService = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_CustomerMailAndPhone = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_PdfSettings = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_WebSettings = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_WebLog = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup14 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup12 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.ribbonPageGroup14 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btn_CustomerMailAndPhone = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_UILog = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
@@ -102,9 +105,13 @@
             this.skinRibbonGalleryBarItem1,
             this.btn_StopService,
             this.btn_StartService,
-            this.btn_CustomerMailAndPhone});
+            this.btn_CustomerMailAndPhone,
+            this.btn_PdfSettings,
+            this.btn_WebSettings,
+            this.btn_WebLog,
+            this.btn_UILog});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 24;
+            this.ribbonControl1.MaxItemId = 28;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -165,7 +172,6 @@
             this.btn_WebSite.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_WebSite.ImageOptions.Image")));
             this.btn_WebSite.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_WebSite.ImageOptions.LargeImage")));
             this.btn_WebSite.Name = "btn_WebSite";
-            this.btn_WebSite.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_WebSite_ItemClick);
             // 
             // btn_Count
             // 
@@ -202,7 +208,7 @@
             // 
             // btn_SQLiteCommand
             // 
-            this.btn_SQLiteCommand.Caption = "SQLITE Komut";
+            this.btn_SQLiteCommand.Caption = "SQLITE Komut Ekranı";
             this.btn_SQLiteCommand.Id = 13;
             this.btn_SQLiteCommand.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_SQLiteCommand.ImageOptions.Image")));
             this.btn_SQLiteCommand.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_SQLiteCommand.ImageOptions.LargeImage")));
@@ -246,7 +252,8 @@
             // 
             this.btn_MailAndWpKontor.Caption = "Mail Ve Whatsapp Kontör Sayısı";
             this.btn_MailAndWpKontor.Id = 18;
-            this.btn_MailAndWpKontor.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btn_MailAndWpKontor.ImageOptions.SvgImage")));
+            this.btn_MailAndWpKontor.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_MailAndWpKontor.ImageOptions.Image")));
+            this.btn_MailAndWpKontor.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_MailAndWpKontor.ImageOptions.LargeImage")));
             this.btn_MailAndWpKontor.Name = "btn_MailAndWpKontor";
             this.btn_MailAndWpKontor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_MailAndWpKontor_ItemClick);
             // 
@@ -275,6 +282,41 @@
             this.btn_StartService.Name = "btn_StartService";
             this.btn_StartService.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_StartService_ItemClick);
             // 
+            // btn_CustomerMailAndPhone
+            // 
+            this.btn_CustomerMailAndPhone.Caption = "Müşteri Mail Ve Telefon";
+            this.btn_CustomerMailAndPhone.Id = 23;
+            this.btn_CustomerMailAndPhone.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_CustomerMailAndPhone.ImageOptions.Image")));
+            this.btn_CustomerMailAndPhone.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_CustomerMailAndPhone.ImageOptions.LargeImage")));
+            this.btn_CustomerMailAndPhone.Name = "btn_CustomerMailAndPhone";
+            this.btn_CustomerMailAndPhone.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_CustomerMailAndPhone_ItemClick);
+            // 
+            // btn_PdfSettings
+            // 
+            this.btn_PdfSettings.Caption = "PDF Düzenle";
+            this.btn_PdfSettings.Id = 24;
+            this.btn_PdfSettings.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_PdfSettings.ImageOptions.Image")));
+            this.btn_PdfSettings.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_PdfSettings.ImageOptions.LargeImage")));
+            this.btn_PdfSettings.Name = "btn_PdfSettings";
+            // 
+            // btn_WebSettings
+            // 
+            this.btn_WebSettings.Caption = "Web Servis Ayarları";
+            this.btn_WebSettings.Id = 25;
+            this.btn_WebSettings.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_WebSettings.ImageOptions.Image")));
+            this.btn_WebSettings.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_WebSettings.ImageOptions.LargeImage")));
+            this.btn_WebSettings.Name = "btn_WebSettings";
+            this.btn_WebSettings.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_WebSettings_ItemClick);
+            // 
+            // btn_WebLog
+            // 
+            this.btn_WebLog.Caption = "Web Log";
+            this.btn_WebLog.Id = 26;
+            this.btn_WebLog.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_WebLog.ImageOptions.Image")));
+            this.btn_WebLog.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btn_WebLog.ImageOptions.LargeImage")));
+            this.btn_WebLog.Name = "btn_WebLog";
+            this.btn_WebLog.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_WebLog_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -294,6 +336,11 @@
             // 
             this.ribbonPageGroup2.ItemLinks.Add(this.btn_CompanySettings);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            // 
+            // ribbonPageGroup14
+            // 
+            this.ribbonPageGroup14.ItemLinks.Add(this.btn_CustomerMailAndPhone);
+            this.ribbonPageGroup14.Name = "ribbonPageGroup14";
             // 
             // ribbonPage2
             // 
@@ -317,22 +364,16 @@
             // ribbonPage3
             // 
             this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup6,
             this.ribbonPageGroup10,
-            this.ribbonPageGroup4,
-            this.ribbonPageGroup9,
             this.ribbonPageGroup11,
             this.ribbonPageGroup12,
             this.ribbonPageGroup13,
-            this.ribbonPageGroup7});
+            this.ribbonPageGroup6,
+            this.ribbonPageGroup7,
+            this.ribbonPageGroup4});
             this.ribbonPage3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage3.ImageOptions.Image")));
             this.ribbonPage3.Name = "ribbonPage3";
             this.ribbonPage3.Text = "Admin İşlemleri";
-            // 
-            // ribbonPageGroup6
-            // 
-            this.ribbonPageGroup6.ItemLinks.Add(this.btn_WebSite);
-            this.ribbonPageGroup6.Name = "ribbonPageGroup6";
             // 
             // ribbonPageGroup10
             // 
@@ -343,11 +384,6 @@
             // 
             this.ribbonPageGroup4.ItemLinks.Add(this.btn_PdfDocs);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
-            // 
-            // ribbonPageGroup9
-            // 
-            this.ribbonPageGroup9.ItemLinks.Add(this.btn_SQLiteCommand);
-            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
             // 
             // ribbonPageGroup11
             // 
@@ -361,8 +397,16 @@
             // 
             // ribbonPageGroup13
             // 
-            this.ribbonPageGroup13.ItemLinks.Add(this.btn_SQLSettings);
+            this.ribbonPageGroup13.ItemLinks.Add(this.btn_WebSettings);
+            this.ribbonPageGroup13.ItemLinks.Add(this.btn_WebLog);
+            this.ribbonPageGroup13.ItemLinks.Add(this.btn_UILog);
             this.ribbonPageGroup13.Name = "ribbonPageGroup13";
+            // 
+            // ribbonPageGroup6
+            // 
+            this.ribbonPageGroup6.ItemLinks.Add(this.btn_SQLiteCommand);
+            this.ribbonPageGroup6.ItemLinks.Add(this.btn_SQLSettings);
+            this.ribbonPageGroup6.Name = "ribbonPageGroup6";
             // 
             // ribbonPageGroup7
             // 
@@ -394,19 +438,14 @@
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
             // 
-            // ribbonPageGroup14
+            // btn_UILog
             // 
-            this.ribbonPageGroup14.ItemLinks.Add(this.btn_CustomerMailAndPhone);
-            this.ribbonPageGroup14.Name = "ribbonPageGroup14";
-            // 
-            // btn_CustomerMailAndPhone
-            // 
-            this.btn_CustomerMailAndPhone.Caption = "Müşteri Mail Ve Telefon";
-            this.btn_CustomerMailAndPhone.Id = 23;
-            this.btn_CustomerMailAndPhone.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
-            this.btn_CustomerMailAndPhone.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
-            this.btn_CustomerMailAndPhone.Name = "btn_CustomerMailAndPhone";
-            this.btn_CustomerMailAndPhone.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_CustomerMailAndPhone_ItemClick);
+            this.btn_UILog.Caption = "UI Log";
+            this.btn_UILog.Id = 27;
+            this.btn_UILog.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.Image")));
+            this.btn_UILog.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.ImageOptions.LargeImage")));
+            this.btn_UILog.Name = "btn_UILog";
+            this.btn_UILog.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_UILog_ItemClick);
             // 
             // HomeForm
             // 
@@ -446,7 +485,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraBars.BarButtonItem btn_WebSite;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
         private DevExpress.XtraBars.BarButtonItem btn_Count;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem btn_About;
@@ -457,7 +495,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.BarButtonItem btn_PdfDocs;
         private DevExpress.XtraBars.BarButtonItem btn_SQLiteCommand;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
         private DevExpress.XtraBars.BarButtonItem btn_MailAndWpCount;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
@@ -474,5 +511,10 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
         private DevExpress.XtraBars.BarButtonItem btn_CustomerMailAndPhone;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup14;
+        private DevExpress.XtraBars.BarButtonItem btn_PdfSettings;
+        private DevExpress.XtraBars.BarButtonItem btn_WebSettings;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
+        private DevExpress.XtraBars.BarButtonItem btn_WebLog;
+        private DevExpress.XtraBars.BarButtonItem btn_UILog;
     }
 }

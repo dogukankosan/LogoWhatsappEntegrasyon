@@ -6,7 +6,7 @@ namespace NoktaBilgiNotificationUI.Business
 {
     internal class CompanySettingLogic
     {
-        internal static bool CompanyControl(TextEdit companyCode, TextEdit companyPeriod, TextEdit companyName, TextEdit managerName,PictureEdit image,TextEdit firmaNo,TextEdit domainURL,TextEdit iisPath)
+        internal static bool CompanyControl(TextEdit companyCode, TextEdit companyPeriod, TextEdit companyName, TextEdit managerName,PictureEdit image,TextEdit firmaNo )
         {
             #region CompanyCode
             if (string.IsNullOrEmpty(companyCode.Text.Trim()))
@@ -107,33 +107,6 @@ namespace NoktaBilgiNotificationUI.Business
             }
             #endregion
 
-            #region DomainURL
-            if (string.IsNullOrEmpty(domainURL.Text.Trim()))
-            {
-                XtraMessageBox.Show("Domain URL kutusu boş geçilemez", "Hatalı Domain URL Girişi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                domainURL.Focus();
-                return false;
-            }
-            else if (domainURL.Text.Trim().Length > 200)
-            {
-                XtraMessageBox.Show("Domain URL 200 karakterden fazla olamaz", "Hatalı Domain URL Girişi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                domainURL.Focus();
-                return false;
-            }
-            else if (!domainURL.Text.Trim().Contains("http"))
-            {
-                XtraMessageBox.Show("Domain URL'de htpp içermelidir", "Hatalı Domain URL Girişi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                domainURL.Focus();
-                return false;
-            }
-            else if (!domainURL.Text.Trim().Contains(":"))
-            {
-                XtraMessageBox.Show("Domain URL'de : karakteri içermelidir", "Hatalı Domain URL Girişi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                domainURL.Focus();
-                return false;
-            }
-            #endregion
-
             #region CompanyImage
             if (image.Image is null)
             {
@@ -143,26 +116,6 @@ namespace NoktaBilgiNotificationUI.Business
             }
             #endregion
 
-            #region IISPath
-            if (string.IsNullOrEmpty(iisPath.Text.Trim()))
-            {
-                XtraMessageBox.Show("IIS Yolu boş geçilemez", "Hatalı IIS Yolu Girişi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                iisPath.Focus();
-                return false;
-            }
-            else if (iisPath.Text.Trim().Length > 500)
-            {
-                XtraMessageBox.Show("IIS Yolu 500 karakterden fazla olamaz", "Hatalı IIS Yolu Girişi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                iisPath.Focus();
-                return false;
-            }
-            else if(!iisPath.Text.Trim().Contains(@"\"))
-            {
-                XtraMessageBox.Show(@"IIS Yolu \ karakteri içermelidir", "Hatalı IIS Yolu Girişi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                iisPath.Focus();
-                return false;
-            }
-            #endregion
             return true;
         }
     }

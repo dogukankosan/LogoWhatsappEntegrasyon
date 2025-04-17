@@ -12,7 +12,6 @@ namespace NoktaBilgiNotificationService.Classes
         private static string dbPath = Path.Combine(exeDir, "..", "Database", "SettingsDB.db");
         private static string dbPathFile = Path.GetFullPath(dbPath); // ".." kısmını temizler
         private static string connectionString = $"Data Source={dbPathFile};Version=3;";
-
         internal static DataTable GetDataFromSQLite(string query)
         {
             DataTable dataTable = new DataTable();

@@ -124,6 +124,7 @@
             // rd_Wp
             // 
             this.rd_Wp.AutoSize = true;
+            this.rd_Wp.Checked = true;
             this.rd_Wp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
             this.rd_Wp.Location = new System.Drawing.Point(136, 29);
             this.rd_Wp.Name = "rd_Wp";
@@ -141,7 +142,6 @@
             this.rdb_Mail.Name = "rdb_Mail";
             this.rdb_Mail.Size = new System.Drawing.Size(123, 24);
             this.rdb_Mail.TabIndex = 2;
-            this.rdb_Mail.TabStop = true;
             this.rdb_Mail.Text = "Mail İle Çalış";
             this.rdb_Mail.UseVisualStyleBackColor = true;
             // 
@@ -153,13 +153,13 @@
             this.rdb_Customer.Name = "rdb_Customer";
             this.rdb_Customer.Size = new System.Drawing.Size(157, 24);
             this.rdb_Customer.TabIndex = 15;
-            this.rdb_Customer.TabStop = true;
             this.rdb_Customer.Text = "Müşteri İçin Çalış";
             this.rdb_Customer.UseVisualStyleBackColor = true;
             // 
             // rdb_Manager
             // 
             this.rdb_Manager.AutoSize = true;
+            this.rdb_Manager.Checked = true;
             this.rdb_Manager.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
             this.rdb_Manager.Location = new System.Drawing.Point(8, 31);
             this.rdb_Manager.Name = "rdb_Manager";

@@ -57,6 +57,8 @@
     <Reference Include="DevExpress.BonusSkins.v20.1" />
     <Reference Include="DevExpress.Data.Desktop.v20.1" />
     <Reference Include="DevExpress.Data.v20.1" />
+    <Reference Include="DevExpress.Pdf.v20.1.Core, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Pdf.v20.1.Drawing, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v20.1" />
     <Reference Include="DevExpress.Sparkline.v20.1.Core" />
     <Reference Include="DevExpress.XtraBars.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -64,7 +66,9 @@
     <Reference Include="DevExpress.Printing.v20.1.Core" />
     <Reference Include="DevExpress.XtraGrid.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPdfViewer.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v20.1, Version=20.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -213,10 +217,10 @@
     <Compile Include="Business\CompanySettingLogic.cs" />
     <Compile Include="Business\CustomerLogic.cs" />
     <Compile Include="Business\EMailSettingLogic.cs" />
+    <Compile Include="Business\WebSettingsLogic.cs" />
     <Compile Include="Business\WhatsappSettingLogic.cs" />
     <Compile Include="Classes\EMailManager.cs" />
     <Compile Include="Classes\EncryptionHelper.cs" />
-    <Compile Include="Classes\TokenGenerate.cs" />
     <Compile Include="Classes\ImageConvert.cs" />
     <Compile Include="Classes\PDFCreat.cs" />
     <Compile Include="Classes\SQLCrud.cs" />
@@ -245,6 +249,18 @@
     </Compile>
     <Compile Include="Forms\CustomerTelAndMailForm.Designer.cs">
       <DependentUpon>CustomerTelAndMailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DocumentSQLTriggercs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DocumentSQLTriggercs.Designer.cs">
+      <DependentUpon>DocumentSQLTriggercs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GridFilterAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\GridFilterAdd.Designer.cs">
+      <DependentUpon>GridFilterAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\HomeForm.cs">
       <SubType>Form</SubType>
@@ -294,23 +310,41 @@
     <Compile Include="Forms\SQLSettingForm.Designer.cs">
       <DependentUpon>SQLSettingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UILogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UILogForm.Designer.cs">
+      <DependentUpon>UILogForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UserSettingForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\UserSettingForm.Designer.cs">
       <DependentUpon>UserSettingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\WebSiteForm.cs">
+    <Compile Include="Forms\WebServiceSettings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\WebSiteForm.Designer.cs">
-      <DependentUpon>WebSiteForm.cs</DependentUpon>
+    <Compile Include="Forms\WebServiceSettings.Designer.cs">
+      <DependentUpon>WebServiceSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\WpSetttingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\WpSetttingsForm.Designer.cs">
       <DependentUpon>WpSetttingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SaveFilterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SaveFilterForm.Designer.cs">
+      <DependentUpon>SaveFilterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WebLogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WebLogForm.Designer.cs">
+      <DependentUpon>WebLogForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -325,6 +359,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CustomerTelAndMailForm.resx">
       <DependentUpon>CustomerTelAndMailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DocumentSQLTriggercs.resx">
+      <DependentUpon>DocumentSQLTriggercs.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\GridFilterAdd.resx">
+      <DependentUpon>GridFilterAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
@@ -350,14 +391,23 @@
     <EmbeddedResource Include="Forms\SQLSettingForm.resx">
       <DependentUpon>SQLSettingForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UILogForm.resx">
+      <DependentUpon>UILogForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserSettingForm.resx">
       <DependentUpon>UserSettingForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\WebSiteForm.resx">
-      <DependentUpon>WebSiteForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\WebServiceSettings.resx">
+      <DependentUpon>WebServiceSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\WpSetttingsForm.resx">
       <DependentUpon>WpSetttingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SaveFilterForm.resx">
+      <DependentUpon>SaveFilterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WebLogForm.resx">
+      <DependentUpon>WebLogForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

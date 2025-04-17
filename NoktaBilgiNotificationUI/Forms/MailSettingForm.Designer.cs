@@ -42,11 +42,30 @@
             this.txt_Server = new DevExpress.XtraEditors.TextEdit();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_Email = new DevExpress.XtraEditors.TextEdit();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txt_Web = new DevExpress.XtraEditors.TextEdit();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txt_Adres = new DevExpress.XtraEditors.TextEdit();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txt_Phone = new DevExpress.XtraEditors.TextEdit();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            this.btn_Save = new DevExpress.XtraEditors.SimpleButton();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txt_CompanyName = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_recipientEmail.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Port.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Password.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Server.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Email.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_Web.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_Adres.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_Phone.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_CompanyName.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -190,12 +209,148 @@
             this.txt_Email.Size = new System.Drawing.Size(189, 24);
             this.txt_Email.TabIndex = 0;
             // 
+            // groupControl1
+            // 
+            this.groupControl1.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl1.CaptionImageOptions.Image")));
+            this.groupControl1.Controls.Add(this.label10);
+            this.groupControl1.Controls.Add(this.txt_Web);
+            this.groupControl1.Controls.Add(this.label9);
+            this.groupControl1.Controls.Add(this.txt_Adres);
+            this.groupControl1.Controls.Add(this.label8);
+            this.groupControl1.Controls.Add(this.txt_Phone);
+            this.groupControl1.Controls.Add(this.label7);
+            this.groupControl1.Controls.Add(this.pictureEdit1);
+            this.groupControl1.Controls.Add(this.btn_Save);
+            this.groupControl1.Controls.Add(this.label6);
+            this.groupControl1.Controls.Add(this.txt_CompanyName);
+            this.groupControl1.Location = new System.Drawing.Point(693, 8);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(345, 373);
+            this.groupControl1.TabIndex = 59;
+            this.groupControl1.Text = "Mail İmza Tanımları";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.label10.Location = new System.Drawing.Point(5, 159);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(130, 20);
+            this.label10.TabIndex = 64;
+            this.label10.Text = "Şirket Web Site:";
+            // 
+            // txt_Web
+            // 
+            this.txt_Web.Location = new System.Drawing.Point(140, 158);
+            this.txt_Web.Name = "txt_Web";
+            this.txt_Web.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.txt_Web.Properties.Appearance.Options.UseFont = true;
+            this.txt_Web.Properties.MaxLength = 75;
+            this.txt_Web.Size = new System.Drawing.Size(189, 24);
+            this.txt_Web.TabIndex = 3;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.label9.Location = new System.Drawing.Point(5, 120);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(106, 20);
+            this.label9.TabIndex = 62;
+            this.label9.Text = "Şirket Adres:";
+            // 
+            // txt_Adres
+            // 
+            this.txt_Adres.Location = new System.Drawing.Point(140, 119);
+            this.txt_Adres.Name = "txt_Adres";
+            this.txt_Adres.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.txt_Adres.Properties.Appearance.Options.UseFont = true;
+            this.txt_Adres.Properties.MaxLength = 300;
+            this.txt_Adres.Size = new System.Drawing.Size(189, 24);
+            this.txt_Adres.TabIndex = 2;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.label8.Location = new System.Drawing.Point(5, 87);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(117, 20);
+            this.label8.TabIndex = 60;
+            this.label8.Text = "Şirket Telefon:";
+            // 
+            // txt_Phone
+            // 
+            this.txt_Phone.Location = new System.Drawing.Point(140, 86);
+            this.txt_Phone.Name = "txt_Phone";
+            this.txt_Phone.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.txt_Phone.Properties.Appearance.Options.UseFont = true;
+            this.txt_Phone.Properties.MaxLength = 20;
+            this.txt_Phone.Size = new System.Drawing.Size(189, 24);
+            this.txt_Phone.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.label7.Location = new System.Drawing.Point(5, 198);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(110, 20);
+            this.label7.TabIndex = 58;
+            this.label7.Text = "Şirket Resim:";
+            // 
+            // pictureEdit1
+            // 
+            this.pictureEdit1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureEdit1.Location = new System.Drawing.Point(140, 198);
+            this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            this.pictureEdit1.Size = new System.Drawing.Size(189, 106);
+            this.pictureEdit1.TabIndex = 4;
+            // 
+            // btn_Save
+            // 
+            this.btn_Save.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success;
+            this.btn_Save.Appearance.Font = new System.Drawing.Font("Tahoma", 15.25F);
+            this.btn_Save.Appearance.Options.UseBackColor = true;
+            this.btn_Save.Appearance.Options.UseFont = true;
+            this.btn_Save.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Save.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Save.ImageOptions.Image")));
+            this.btn_Save.Location = new System.Drawing.Point(20, 327);
+            this.btn_Save.Name = "btn_Save";
+            this.btn_Save.Size = new System.Drawing.Size(320, 41);
+            this.btn_Save.TabIndex = 5;
+            this.btn_Save.Text = "Kaydet";
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.label6.Location = new System.Drawing.Point(5, 46);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(86, 20);
+            this.label6.TabIndex = 55;
+            this.label6.Text = "Şirket Adı:";
+            // 
+            // txt_CompanyName
+            // 
+            this.txt_CompanyName.Location = new System.Drawing.Point(140, 45);
+            this.txt_CompanyName.Name = "txt_CompanyName";
+            this.txt_CompanyName.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.txt_CompanyName.Properties.Appearance.Options.UseFont = true;
+            this.txt_CompanyName.Properties.MaxLength = 100;
+            this.txt_CompanyName.Size = new System.Drawing.Size(189, 24);
+            this.txt_CompanyName.TabIndex = 0;
+            // 
             // MailSettingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(713, 444);
+            this.ClientSize = new System.Drawing.Size(1166, 444);
+            this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txt_recipientEmail);
             this.Controls.Add(this.btn_SendMail);
@@ -222,6 +377,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_Password.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Server.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_Email.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_Web.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_Adres.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_Phone.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_CompanyName.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,5 +405,17 @@
         private DevExpress.XtraEditors.TextEdit txt_Server;
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraEditors.TextEdit txt_Email;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.XtraEditors.SimpleButton btn_Save;
+        private System.Windows.Forms.Label label6;
+        private DevExpress.XtraEditors.TextEdit txt_CompanyName;
+        private System.Windows.Forms.Label label7;
+        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
+        private System.Windows.Forms.Label label10;
+        private DevExpress.XtraEditors.TextEdit txt_Web;
+        private System.Windows.Forms.Label label9;
+        private DevExpress.XtraEditors.TextEdit txt_Adres;
+        private System.Windows.Forms.Label label8;
+        private DevExpress.XtraEditors.TextEdit txt_Phone;
     }
 }

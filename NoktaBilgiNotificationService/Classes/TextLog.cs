@@ -9,20 +9,14 @@ namespace NoktaBilgiNotificationService.Classes
         {
             try
             {
-            
-
-                string exePath = System.Reflection.Assembly.GetExecutingAssembly().Location;
-                string exeDirectory = Path.GetDirectoryName(exePath);
-                string debugDirectory = Path.GetFullPath(Path.Combine(exeDirectory, ".."));
-                string logDirectory = Path.Combine(debugDirectory, "Logs");
-                string logFilePath = Path.Combine(logDirectory, "ServiceLog.txt");
-                Directory.CreateDirectory(logDirectory);
-                File.AppendAllText(logFilePath, $"{DateTime.Now}: {message}\n");
-
+                string basePath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\Logs"));
+                string logFilePath = Path.Combine(basePath, "ServiceLog.txt");
+                Directory.CreateDirectory(Path.GetDirectoryName(logFilePath));
+                File.AppendAllText(logFilePath, $"{DateTime.Now}: {message}{Environment.NewLine}");
             }
             catch (Exception)
             {
-
+               
             }
         }
     }

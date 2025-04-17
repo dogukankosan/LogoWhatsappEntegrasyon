@@ -3,7 +3,6 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-
 namespace NoktaBilgiNotificationService.Classes
 {
     internal class EncryptionHelper

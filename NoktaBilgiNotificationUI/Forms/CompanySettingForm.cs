@@ -2,7 +2,6 @@
 using System.Data;
 using System.IO;
 using System.Windows.Forms;
-using System.Xml;
 using DevExpress.XtraEditors;
 using NoktaBilgiNotificationUI.Business;
 using NoktaBilgiNotificationUI.Classes;
@@ -23,12 +22,6 @@ namespace NoktaBilgiNotificationUI.Forms
         private async void btn_Save_Click(object sender, EventArgs e)
         {
             string sqlFilePath = "";
-            sqlFilePath = Path.Combine(Application.StartupPath, "Queries", "Trigger.sql");
-            if (!File.Exists(sqlFilePath))
-            {
-                XtraMessageBox.Show("Hata: Trigger.sql dosyası bulunamadı! Dosya yolu: " + sqlFilePath, "Hatalı yol", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             sqlFilePath = Path.Combine(Application.StartupPath, "Queries", "CreateTableFilter.sql");
             if (!File.Exists(sqlFilePath))
             {
@@ -41,32 +34,8 @@ namespace NoktaBilgiNotificationUI.Forms
                 XtraMessageBox.Show("Hata: CreateTable.sql dosyası bulunamadı! Dosya yolu: " + sqlFilePath, "Hatalı yol", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            sqlFilePath = Path.Combine(Application.StartupPath, "Queries", "DeleteTrigger.sql");
-            if (!File.Exists(sqlFilePath))
-            {
-                XtraMessageBox.Show("Hata: DeleteTrigger.sql dosyası bulunamadı! Dosya yolu: " + sqlFilePath, "Hatalı yol", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            sqlFilePath = Path.Combine(Application.StartupPath, "Queries", "TableCountCreate.sql");
-            if (!File.Exists(sqlFilePath))
-            {
-                XtraMessageBox.Show("Hata: TableCountCreate.sql dosyası bulunamadı! Dosya yolu: " + sqlFilePath, "Hatalı yol", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            sqlFilePath = Path.Combine(Application.StartupPath, "Queries", "WebLogCreate.sql");
-            if (!File.Exists(sqlFilePath))
-            {
-                XtraMessageBox.Show("Hata: WebLogCreate.sql dosyası bulunamadı! Dosya yolu: " + sqlFilePath, "Hatalı yol", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            sqlFilePath = Path.Combine(Application.StartupPath, "Queries", "CreateToken.sql");
-            if (!File.Exists(sqlFilePath))
-            {
-                XtraMessageBox.Show("Hata: CreateToken.sql dosyası bulunamadı! Dosya yolu: " + sqlFilePath, "Hatalı yol", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             if (CompanySettingLogic.CompanyControl(txt_CompanyNumber
-                , txt_CompanyPeriod, txt_CompanyName, txt_ManagerName, pictureEdit1, txt_CompanyNo, txt_Domain,txt_ISSPath))
+                , txt_CompanyPeriod, txt_CompanyName, txt_ManagerName, pictureEdit1, txt_CompanyNo))
             {
                 DataTable dt = SQLiteCrud.GetDataFromSQLite("SELECT SQLConnectString FROM SqlConnectionString LIMIT 1");
                 if (!(dt is null))
@@ -75,31 +44,11 @@ namespace NoktaBilgiNotificationUI.Forms
                     {
                         string sqlScript = "";
 
-                        sqlScript = File.ReadAllText(Application.StartupPath + "\\Queries\\TableCountCreate.sql").Replace("\r\n", " ")
-                           .Replace("\n", " ")
-                           .Replace("\t", " ")
-                           .Trim();
-                        bool statusTableCount = await SQLCrud.InserUpdateDelete(sqlScript, dt.Rows[0][0].ToString());
-
                         sqlScript = File.ReadAllText(Application.StartupPath + "\\Queries\\CreateTableFilter.sql").Replace("\r\n", " ")
                            .Replace("\n", " ")
                            .Replace("\t", " ")
                            .Trim();
                         bool statusTableFilter = await SQLCrud.InserUpdateDelete(sqlScript, dt.Rows[0][0].ToString());
-
-                        sqlScript = File.ReadAllText(Application.StartupPath + "\\Queries\\DeleteTrigger.sql").Replace("\r\n", " ")
-                            .Replace("\n", " ")
-                            .Replace("\t", " ")
-                            .Trim();
-                        bool statusTriggerDelete = await SQLCrud.InserUpdateDelete(sqlScript, dt.Rows[0][0].ToString());
-
-                        sqlScript = File.ReadAllText(Application.StartupPath + "\\Queries\\Trigger.sql").Replace("\r\n", " ")
-                            .Replace("\n", " ")
-                            .Replace("\t", " ")
-                            .Trim();
-                        sqlScript = sqlScript.Replace("LG_001", $"LG_{txt_CompanyNumber.Text.Trim()}");
-                        sqlScript = sqlScript.Replace("LG_001_01", $"LG_{txt_CompanyNumber.Text.Trim()}_{txt_CompanyPeriod.Text.Trim()}");
-                        bool statusTriggerCreate = await SQLCrud.InserUpdateDelete(sqlScript, dt.Rows[0][0].ToString());
 
                         sqlScript = File.ReadAllText(Application.StartupPath + "\\Queries\\CreateTable.sql").Replace("\r\n", " ")
                            .Replace("\n", " ")
@@ -108,18 +57,6 @@ namespace NoktaBilgiNotificationUI.Forms
                         sqlScript = sqlScript.Replace("LG_001", $"LG_{txt_CompanyNumber.Text.Trim()}");
                         sqlScript = sqlScript.Replace("LG_001_01", $"LG_{txt_CompanyNumber.Text.Trim()}_{txt_CompanyPeriod.Text.Trim()}");
                         bool statusCreateTable = await SQLCrud.InserUpdateDelete(sqlScript, dt.Rows[0][0].ToString());
-
-                        sqlScript = File.ReadAllText(Application.StartupPath + "\\Queries\\WebLogCreate.sql").Replace("\r\n", " ")
-                           .Replace("\n", " ")
-                           .Replace("\t", " ")
-                           .Trim();
-                        bool statusWebLogCreate = await SQLCrud.InserUpdateDelete(sqlScript, dt.Rows[0][0].ToString());
-
-                        sqlScript = File.ReadAllText(Application.StartupPath + "\\Queries\\CreateToken.sql").Replace("\r\n", " ")
-                         .Replace("\n", " ")
-                         .Replace("\t", " ")
-                         .Trim();
-                        bool statusTokenCreate = await SQLCrud.InserUpdateDelete(sqlScript, dt.Rows[0][0].ToString());
 
                         if (!statusCreateTable)
                         {
@@ -131,46 +68,11 @@ namespace NoktaBilgiNotificationUI.Forms
                             XtraMessageBox.Show("Hata: CreateTableFilter.sql dosyası çalıştırılamadı!", "Hatalı SQL İşlemi ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
-                        if (!statusTriggerDelete)
-                        {
-                            XtraMessageBox.Show("Hata: DeleteTrigger.sql dosyası çalıştırılamadı!", "Hatalı SQL İşlemi ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
-                        if (!statusTriggerCreate)
-                        {
-                            XtraMessageBox.Show("Hata: Trigger.sql dosyası çalıştırılamadı!", "Hatalı SQL İşlemi ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
-                        if (!statusTableCount)
-                        {
-                            XtraMessageBox.Show("Hata: TableCountCreate.sql dosyası çalıştırılamadı!", "Hatalı SQL İşlemi ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
-                        if (!statusWebLogCreate)
-                        {
-                            XtraMessageBox.Show("Hata: WebLogCreate.sql dosyası çalıştırılamadı!", "Hatalı SQL İşlemi ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
-                        if (!statusTokenCreate)
-                        {
-                            XtraMessageBox.Show("Hata: CreateToken.sql dosyası çalıştırılamadı!", "Hatalı SQL İşlemi ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
+
                         string base64String = ImageConvert.ImageToBase64(pictureEdit1.Image, System.Drawing.Imaging.ImageFormat.Png);
-                        await SQLiteCrud.InserUpdateDelete("UPDATE CompanySettings SET LogoPeriod = '" + txt_CompanyPeriod.Text.Trim() + "', LogoCompanyName='" + txt_CompanyName.Text.Trim() + "' , CompanyNo='" + txt_CompanyNo.Text + "',LogoCompanyCode = '" + txt_CompanyNumber.Text.Trim() + "',ManagerName='" + txt_ManagerName.Text.Trim() + "',CompanyPicture='" + base64String + "',DomainURL='" + txt_Domain.Text.Trim() + "' , IISPath='"+txt_ISSPath.Text+"' ", "Şirket ayarları güncelleme işlemi başarılı.");
-                        if (statusTriggerCreate && statusCreateTable && statusTriggerDelete && statusTableCount && statusWebLogCreate && statusTableCount)
+                        await SQLiteCrud.InserUpdateDelete("UPDATE CompanySettings SET LogoPeriod = '" + txt_CompanyPeriod.Text.Trim() + "', LogoCompanyName='" + txt_CompanyName.Text.Trim() + "' , CompanyNo='" + txt_CompanyNo.Text + "',LogoCompanyCode = '" + txt_CompanyNumber.Text.Trim() + "',ManagerName='" + txt_ManagerName.Text.Trim() + "',CompanyPicture='" + base64String + "' ", "Şirket ayarları güncelleme işlemi başarılı.");
+                        if (  statusCreateTable  && statusTableFilter)
                         {
-                            string fullPath = Path.Combine(txt_ISSPath.Text.Trim(), "web.config");
-                            XmlDocument doc = new XmlDocument();
-                            doc.Load(fullPath);
-                            XmlNode node =doc.SelectSingleNode("//connectionStrings/add[@name='DBConnection']");
-                            if (node != null && node.Attributes["connectionString"] != null)
-                            {
-                                node.Attributes["connectionString"].Value = EncryptionHelper.Decrypt(dt.Rows[0][0].ToString());
-                                doc.Save(fullPath);
-                            }
-                            else
-                                XtraMessageBox.Show("Belirtilen IIS Config Dosyası Bulunamadı","Web Projesi Connection Hatalı",MessageBoxButtons.OK,MessageBoxIcon.Error);
                             XtraMessageBox.Show("Şirket Bilgileri Güncelleme İşlemi Yapıldıktan Sonra Filtreleri Ayarlayınız", "Filteleri Kaydet", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             CompanyFilterForm fr = new CompanyFilterForm();
                             fr.ShowDialog();
@@ -182,7 +84,7 @@ namespace NoktaBilgiNotificationUI.Forms
         }
         private void CompanySettingForm_Load(object sender, EventArgs e)
         {
-            DataTable dt = SQLiteCrud.GetDataFromSQLite("SELECT LogoCompanyCode,LogoPeriod,LogoCompanyName,ManagerName,CompanyPicture,CompanyNo,DomainURL,IISPath FROM CompanySettings LIMIT 1");
+            DataTable dt = SQLiteCrud.GetDataFromSQLite("SELECT LogoCompanyCode,LogoPeriod,LogoCompanyName,ManagerName,CompanyPicture,CompanyNo FROM CompanySettings LIMIT 1");
             if (!(dt is null))
             {
                 if (dt.Rows.Count > 0)
@@ -200,8 +102,6 @@ namespace NoktaBilgiNotificationUI.Forms
                                 pictureEdit1.Image = ImageConvert.Base64ToImage(base64String);
                         }
                         txt_CompanyNo.Text = dt.Rows[0][5].ToString();
-                        txt_Domain.Text = dt.Rows[0][6].ToString();
-                        txt_ISSPath.Text = dt.Rows[0][7].ToString();
                     }
                     catch (Exception ex)
                     {
@@ -226,20 +126,6 @@ namespace NoktaBilgiNotificationUI.Forms
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '-')
                 e.Handled = true;
-        }
-
-        private void btn_ISSPath_Click(object sender, EventArgs e)
-        {
-            using (FolderBrowserDialog dialog = new FolderBrowserDialog())
-            {
-                dialog.Description = "Lütfen Web Projesinin IIS için Yolu Seçiniz";
-                dialog.ShowNewFolderButton = true;
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    string selectedPath = dialog.SelectedPath;
-                    txt_ISSPath.Text = selectedPath.Trim().ToString();
-                }
-            }
         }
     }
 }

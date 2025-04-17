@@ -42,19 +42,12 @@
             this.txt_ManagerName = new DevExpress.XtraEditors.TextEdit();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_CompanyNo = new DevExpress.XtraEditors.TextEdit();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txt_Domain = new DevExpress.XtraEditors.TextEdit();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txt_ISSPath = new DevExpress.XtraEditors.TextEdit();
-            this.btn_ISSPath = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txt_CompanyPeriod.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_CompanyNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_CompanyName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_ManagerName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_CompanyNo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_Domain.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_ISSPath.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Save
@@ -65,7 +58,7 @@
             this.btn_Save.Appearance.Options.UseFont = true;
             this.btn_Save.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Save.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Save.ImageOptions.Image")));
-            this.btn_Save.Location = new System.Drawing.Point(175, 425);
+            this.btn_Save.Location = new System.Drawing.Point(175, 333);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(195, 44);
             this.btn_Save.TabIndex = 8;
@@ -137,7 +130,7 @@
             // pictureEdit1
             // 
             this.pictureEdit1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureEdit1.Location = new System.Drawing.Point(174, 294);
+            this.pictureEdit1.Location = new System.Drawing.Point(174, 202);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
@@ -148,7 +141,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 12.25F);
-            this.label7.Location = new System.Drawing.Point(12, 294);
+            this.label7.Location = new System.Drawing.Point(12, 202);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(98, 21);
             this.label7.TabIndex = 27;
@@ -195,58 +188,6 @@
             this.txt_CompanyNo.TabIndex = 2;
             this.txt_CompanyNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_CompanyNo_KeyPress);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 12.25F);
-            this.label5.Location = new System.Drawing.Point(12, 199);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(108, 21);
-            this.label5.TabIndex = 36;
-            this.label5.Text = "Domain URL:";
-            // 
-            // txt_Domain
-            // 
-            this.txt_Domain.Location = new System.Drawing.Point(174, 198);
-            this.txt_Domain.Name = "txt_Domain";
-            this.txt_Domain.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.25F);
-            this.txt_Domain.Properties.Appearance.Options.UseFont = true;
-            this.txt_Domain.Properties.MaxLength = 200;
-            this.txt_Domain.Size = new System.Drawing.Size(195, 24);
-            this.txt_Domain.TabIndex = 5;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Tahoma", 12.25F);
-            this.label8.Location = new System.Drawing.Point(12, 249);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 21);
-            this.label8.TabIndex = 38;
-            this.label8.Text = "IIS Yol:";
-            // 
-            // txt_ISSPath
-            // 
-            this.txt_ISSPath.Enabled = false;
-            this.txt_ISSPath.Location = new System.Drawing.Point(174, 248);
-            this.txt_ISSPath.Name = "txt_ISSPath";
-            this.txt_ISSPath.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.25F);
-            this.txt_ISSPath.Properties.Appearance.Options.UseFont = true;
-            this.txt_ISSPath.Properties.MaxLength = 500;
-            this.txt_ISSPath.Size = new System.Drawing.Size(195, 24);
-            this.txt_ISSPath.TabIndex = 6;
-            // 
-            // btn_ISSPath
-            // 
-            this.btn_ISSPath.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ISSPath.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.btn_ISSPath.Location = new System.Drawing.Point(113, 242);
-            this.btn_ISSPath.Name = "btn_ISSPath";
-            this.btn_ISSPath.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.btn_ISSPath.Size = new System.Drawing.Size(39, 37);
-            this.btn_ISSPath.TabIndex = 39;
-            this.btn_ISSPath.Click += new System.EventHandler(this.btn_ISSPath_Click);
-            // 
             // CompanySettingForm
             // 
             this.AcceptButton = this.btn_Save;
@@ -254,11 +195,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(994, 515);
-            this.Controls.Add(this.btn_ISSPath);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.txt_ISSPath);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txt_Domain);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txt_CompanyNo);
             this.Controls.Add(this.label3);
@@ -286,8 +222,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_ManagerName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_CompanyNo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_Domain.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_ISSPath.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,10 +242,5 @@
         private DevExpress.XtraEditors.TextEdit txt_ManagerName;
         private System.Windows.Forms.Label label4;
         private DevExpress.XtraEditors.TextEdit txt_CompanyNo;
-        private System.Windows.Forms.Label label5;
-        private DevExpress.XtraEditors.TextEdit txt_Domain;
-        private System.Windows.Forms.Label label8;
-        private DevExpress.XtraEditors.TextEdit txt_ISSPath;
-        private DevExpress.XtraEditors.SimpleButton btn_ISSPath;
     }
 }
