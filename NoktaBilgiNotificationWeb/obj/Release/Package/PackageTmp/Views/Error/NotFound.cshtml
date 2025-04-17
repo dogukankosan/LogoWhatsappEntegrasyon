@@ -1,0 +1,27 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>404 - Sayfa Bulunamadı</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="@Url.Content("~/favicon.ico")" />
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <div class="min-h-screen flex items-center justify-center px-4">
+        <div class="bg-white rounded-xl shadow-lg p-6 md:p-10 flex flex-col md:flex-row items-center gap-6 max-w-4xl w-full">
+            <img src="@Url.Content("~/errorpng.png")" width="250" height="250" alt="Sayfa bulunamadı" loading="lazy" class="w-full max-w-md" />
+            <div>
+                <h1 class="text-4xl font-bold text-yellow-500 mb-4">404 - Sayfa Bulunamadı</h1>
+                <p class="text-lg leading-relaxed">
+                    Üzgünüz, aradığınız sayfa mevcut değil veya kaldırılmış olabilir.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
