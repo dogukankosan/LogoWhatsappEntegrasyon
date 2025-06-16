@@ -72,11 +72,15 @@ LogoWhatsappEntegrasyon/
 - SQL sorgularını `Data/Queries` içinde tut
 - Şablon dosyaları `.tmpl` veya JSON olabilir
 
+
 ---
 
 ## 🤝 Katkı
 
 Katkı sağlamak için projeyi forklayabilir ve pull request gönderebilirsiniz.
+
+---
+
 ## 📄 Lisans
 
 MIT License
@@ -89,4 +93,6 @@ MIT License
 - 🐞 Suggestions or issues: [Issues sekmesi](https://github.com/dogukankosan/LogoWhatsappEntegrasyon/issues)
 
 ---
+
+
 
